@@ -34,7 +34,7 @@ export default class App {
      return sueldo;
        } 
     
-obtenerCalificacion(calificacionnumerica) {
+    obtenerCalificacion(calificacionnumerica) {
     let notaFinal;
     if (calificacionnumerica == 0 || calificacionnumerica ==1) {
         notaFinal = "C";
@@ -52,9 +52,9 @@ obtenerCalificacion(calificacionnumerica) {
         notaFinal = "ERROR";
     }
     return notaFinal;
-}
+ }
 
-obtenerCercano100(numero1, numero2, numero3) {
+     obtenerCercano100(numero1, numero2, numero3) {
    let cercano;
    let cercano1 = Math.abs(numero1 - 100);
    let cercano2 = Math.abs(numero2 - 100);
@@ -67,25 +67,46 @@ obtenerCercano100(numero1, numero2, numero3) {
        cercano = numero3;
    }
    return cercano;
-}
+ }
 
-calcular(numero1, numero2, operador){
-let resultado;
-if (operador == "+") {
+ calcular(numero1, numero2, operador){
+ let resultado;
+ if (operador == "+") {
     resultado = numero1 + numero2;
-} else if (operador == "-") {
+ } else if (operador == "-") {
     resultado = numero1 - numero2;
-} else if (operador == "*") {
+ } else if (operador == "*") {
     resultado = numero1 * numero2;
-} else if (operador == "/") {
+ } else if (operador == "/") {
     resultado = numero1 / numero2;
-} else if (operador == "%") { 
+ } else if (operador == "%") { 
     resultado = numero1 % numero2;
-} else {
+ } else {
     resultado = -1;
-}
-return resultado;
-}
+ }
+ return resultado;
+ }
+
+ costoRenta(peliculas, dia) {
+    let promo; 
+    let descuento;
+    if (dia == 1 || dia == 5) {
+    promo = (Math.trunc(peliculas / 3) * 60) + ((peliculas % 3) * 25);
+     } else if (dia == 2 || dia == 4) {
+           promo = ((Math.trunc(peliculas / 2)) * 25) + ((peliculas % 2) * 25);
+     } else if (dia == 3) {
+           descuento = (peliculas * 25) * 0.15;
+           promo = (peliculas * 25) - descuento;
+       } else if (dia == 6 || dia == 7) {
+           promo = peliculas * 25;
+       } else {
+           promo = -1;
+       }
+       return promo;
+
+ }
+  
+
 }
 
 let app = new App();
@@ -123,3 +144,10 @@ console.log(app.calcular(4, 2, "*"));
 console.log(app.calcular(4, 2, "/"));
 console.log(app.calcular(4, 2, "%"));
 console.log(app.calcular(4, 2, "$"));
+
+console.log("probando costoRenta");
+console.log(app.costoRenta(6, 1));
+console.log(app.costoRenta(96, 2));
+console.log(app.costoRenta(3, 3));
+console.log(app.costoRenta(6, 4));
+console.log(app.costoRenta(6, 5));
