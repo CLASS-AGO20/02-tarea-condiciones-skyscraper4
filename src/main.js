@@ -69,6 +69,23 @@ obtenerCercano100(numero1, numero2, numero3) {
    return cercano;
 }
 
+calcular(numero1, numero2, operador){
+let resultado;
+if (operador == "+") {
+    resultado = numero1 + numero2;
+} else if (operador == "-") {
+    resultado = numero1 - numero2;
+} else if (operador == "*") {
+    resultado = numero1 * numero2;
+} else if (operador == "/") {
+    resultado = numero1 / numero2;
+} else if (operador == "%") { 
+    resultado = numero1 % numero2;
+} else {
+    resultado = -1;
+}
+return resultado;
+}
 }
 
 let app = new App();
@@ -98,3 +115,11 @@ console.log(app.obtenerCalificacion(14));
 console.log("probando obtenerCercano100");
 console.log(app.obtenerCercano100(98, 50, 105));
 console.log(app.obtenerCercano100(90, 70, 103));
+
+console.log("probando calcular");
+console.log(app.calcular(4, 2, "+"));
+console.log(app.calcular(4, 2, "-"));
+console.log(app.calcular(4, 2, "*"));
+console.log(app.calcular(4, 2, "/"));
+console.log(app.calcular(4, 2, "%"));
+console.log(app.calcular(4, 2, "$"));
