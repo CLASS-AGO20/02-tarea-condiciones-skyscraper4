@@ -54,6 +54,21 @@ obtenerCalificacion(calificacionnumerica) {
     return notaFinal;
 }
 
+obtenerCercano100(numero1, numero2, numero3) {
+   let cercano;
+   let cercano1 = Math.abs(numero1 - 100);
+   let cercano2 = Math.abs(numero2 - 100);
+   let cercano3 = Math.abs(numero3 - 100);
+   if (cercano1 < cercano2 && cercano1 < cercano3) {
+       cercano = numero1;
+   } else if (cercano2 < cercano1 && cercano2 < cercano3) {
+       cercano = numero2;
+   } else if (cercano3 < cercano1 && cercano3 < cercano2) {
+       cercano = numero3;
+   }
+   return cercano;
+}
+
 }
 
 let app = new App();
@@ -79,3 +94,7 @@ console.log(app.obtenerCalificacion(6));
 console.log(app.obtenerCalificacion(8));
 console.log(app.obtenerCalificacion(10));
 console.log(app.obtenerCalificacion(14));
+
+console.log("probando obtenerCercano100");
+console.log(app.obtenerCercano100(98, 50, 105));
+console.log(app.obtenerCercano100(90, 70, 103));
