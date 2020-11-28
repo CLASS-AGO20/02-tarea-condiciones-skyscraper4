@@ -108,20 +108,27 @@ export default class App {
 
  costoBoletos(boletos, zona) {
      let costo;
-     
-     if (zona == 1) {
-         costo = boletos * 300;
-     } else if (zona == 2) {
-         costo = boletos * 450;
-     } else if (zona == 3) {
-         costo = boletos * 700;
-     } else if (costo > 2000) {
+    
+     switch(zona){
+         case 1:
+             costo = boletos * 300;
+             break;
+             case 2:
+                 costo = boletos * 450;
+                 break;
+                 case 3:
+                     costo = boletos * 700;
+                     break;
+                     default:
+                         costo = -1;
+     }
+     if (costo > 2000) {
          costo = costo - (costo * 0.07);
-     } else {
-         costo = -1;
      }
      return costo;
- }
+     }
+     
+ 
   
 
 }
